@@ -32,14 +32,10 @@ export default abstract class Stock {
    * @returns The percentage change.
    */
   private static _getPercentChange(originalNumber: number, newNumber: number): number {
-    if (originalNumber > newNumber) {
-      const delta: number = newNumber - originalNumber;
-      return delta / originalNumber;
-    } else if (originalNumber < newNumber) {
-      const delta: number = originalNumber - newNumber;
-      return delta / originalNumber;
-    } else {
+    if (originalNumber === newNumber) {
       return 0.0;
+    } else {
+      return (newNumber - originalNumber) / originalNumber;
     }
   }
 
@@ -48,7 +44,7 @@ export default abstract class Stock {
    * @param symbolOrSymbols to get data price for.
    * @returns Symbol price data.
    */
-  public static async getPrice(symbolOrSymbols: string | Array<string>): Promise<Price> {
+  public static async getPrice(symbolOrSymbols: string | string[]): Promise<Price> {
     const symbols: string[] = (typeof (symbolOrSymbols) == 'string') ? [symbolOrSymbols] : symbolOrSymbols;
     const promises: { [key: string]: any; } = {};
     forEach(symbols, symbol =>

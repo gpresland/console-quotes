@@ -138,4 +138,4 @@ var Table = /** @class */ (function () {
     };
     return Table;
 }());
-exports.default = Table;
+exports.Table = Table;

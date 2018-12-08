@@ -13,7 +13,7 @@ export class TableOptions {
   isPadded?: boolean = true;
 }
 
-export default class Table {
+export class Table {
 
   /**
    * Columns { key : alias }.

@@ -1,11 +1,14 @@
 {
   "name": "console-quotes",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Stock quotes in your console.",
   "main": "dist/index.js",
   "scripts": {
     "build:watch": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "quotes": "./bin/console-quotes"
   },
   "keywords": [
     "stock",
@@ -15,6 +18,7 @@
   "author": "gpresland",
   "dependencies": {
     "axios": "^0.18.0",
+    "bluebird": "^3.5.3",
     "chalk": "^2.4.1",
     "commander": "^2.19.0",
     "lodash": "^4.17.11",

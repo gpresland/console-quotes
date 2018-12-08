@@ -17,9 +17,10 @@ quote
 ```
 
 ```bash
+Options:
   -V, --version    output the version number
-  -a, --add        adds a ticker
-  -p, --portfolio  shows your portfolio
+  -g, --get        get symbol(s)
+  -p, --providers  lists providers
   -h, --help       output usage information
 ```
 

@@ -71,16 +71,11 @@ var Stock = /** @class */ (function () {
      * @returns The percentage change.
      */
     Stock._getPercentChange = function (originalNumber, newNumber) {
-        if (originalNumber > newNumber) {
-            var delta = newNumber - originalNumber;
-            return delta / originalNumber;
-        }
-        else if (originalNumber < newNumber) {
-            var delta = originalNumber - newNumber;
-            return delta / originalNumber;
+        if (originalNumber === newNumber) {
+            return 0.0;
         }
         else {
-            return 0.0;
+            return (newNumber - originalNumber) / originalNumber;
         }
     };
     /**
