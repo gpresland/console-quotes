@@ -49,7 +49,8 @@ export default abstract class Stock {
     const promises: { [key: string]: any; } = {};
     forEach(symbols, symbol =>
       promises[symbol] = Quotes.getPrice(symbol)
-        .then(result => this._transform(result)));
+        .then(result => this._transform(result))
+        .catch(err => { return { symbol }; }));
     return props(promises);
   }
 
@@ -59,6 +60,7 @@ export default abstract class Stock {
    * @returns The transformed data.
    */
   private static _transform(data: object): object {
+    console.log('wtf');
     const last: number = get(data, 'regularMarketPreviousClose');
     const current: number = get(data, 'regularMarketPrice');
     const delta: number = round(current - last, 3);

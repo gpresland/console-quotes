@@ -58,6 +58,7 @@ function get(args) {
                     return [4 /*yield*/, stock_data_1.default.getPrice(args)];
                 case 1:
                     data = _a.sent();
+                    console.log(data);
                     options = {
                         columns: {
                             symbol: { alias: 'Symbol', transform: function (v) { return v; } },

@@ -13,6 +13,7 @@ export async function get(args: string[]): Promise<void> {
     throw new Error('Invalid syntax. Use <portfolio> <symbol> <symbol>..');
   }
   const data = await Stock.getPrice(args);
+  console.log(data);
   const options: TableOptions = {
     columns: {
       symbol: { alias: 'Symbol', transform: (v: any) => v },

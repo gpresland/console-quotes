@@ -92,7 +92,8 @@ var Stock = /** @class */ (function () {
                 promises = {};
                 lodash_1.forEach(symbols, function (symbol) {
                     return promises[symbol] = market_quotes_1.default.getPrice(symbol)
-                        .then(function (result) { return _this._transform(result); });
+                        .then(function (result) { return _this._transform(result); })
+                        .catch(function (err) { return { symbol: symbol }; });
                 });
                 return [2 /*return*/, bluebird_1.props(promises)];
             });
@@ -104,6 +105,7 @@ var Stock = /** @class */ (function () {
      * @returns The transformed data.
      */
     Stock._transform = function (data) {
+        console.log('wtf');
         var last = lodash_1.get(data, 'regularMarketPreviousClose');
         var current = lodash_1.get(data, 'regularMarketPrice');
         var delta = lodash_1.round(current - last, 3);
